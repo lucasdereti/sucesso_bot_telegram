@@ -21,22 +21,22 @@ respostas = {
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
     args = context.args
-    if args and args[0] == "quero":
+    if args and args[0].lower() == "quero":
         await update.message.reply_text("Quero saber mais")  # Mensagem automática sugerida
         return
 
-    keyboard = [[InlineKeyboardButton("Acessar Renda Inteligente", url=LINK_KIRVANO)]]
+    keyboard = [[InlineKeyboardButton("Acessar Renda Inteligente 👇", url=LINK_KIRVANO)]]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text
-      
 
-mensagem = mensagem = mensagem = mensagem = "Clique no botão abaixo para saber mais \U0001F447"
+    mensagem = (
+        "Descubra como ganhar dinheiro com inteligência artificial usando o método *Renda Inteligente*.\n\n"
+        "Clique no botão abaixo para saber mais 👇"
+    )
 
-
-
-Descubra como ganhar dinheiro com inteligência artificial usando o método *Renda Inteligente*.
-Clique no botão abaixo para saber mais",
-        reply_markup=reply_markup
+    await update.message.reply_text(
+        mensagem,
+        reply_markup=reply_markup,
+        parse_mode='Markdown'
     )
 
 async def responder(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -47,7 +47,9 @@ async def responder(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
     # Resposta padrão
-    await update.message.reply_text("Me explica melhor sua dúvida? Ou clique aqui e conheça o método: " + LINK_KIRVANO)
+    await update.message.reply_text(
+        "Me explica melhor sua dúvida? Ou clique aqui e conheça o método: " + LINK_KIRVANO
+    )
 
 if __name__ == '__main__':
     app = ApplicationBuilder().token(TOKEN).build()
