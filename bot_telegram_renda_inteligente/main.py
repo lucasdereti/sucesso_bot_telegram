@@ -2,24 +2,20 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 import logging
 
-TOKEN = TOKEN = "8070321774:AAGCiVU-eh5ncuOBs-KH_5E7WECb1R4Z2bg"
-
-LINK_KIRVANO = "https://pay.kirvano.com/353273fb-3cb8-4b83-ab2c-7f387198101d"
+TOKEN = "8070321774:AAGCiVU-eh5ncuOBs-KH_5E7WECb1R4Z2bg"
+LINK_KIRVANO = "https://preview--lucro-inteligente.lovable.app/"
 
 logging.basicConfig(level=logging.INFO)
 
 # Respostas para dúvidas frequentes
 respostas = {
-    "valor": "O investimento no Renda Inteligente está com um desconto especial! Clique no link para ver o preço atualizado: " + LINK_KIRVANO,
+    "valor": f"O investimento no Renda Inteligente está com um desconto especial! Clique no link para ver o preço atualizado: {LINK_KIRVANO}",
     "como funciona": "O curso ensina passo a passo como usar inteligência artificial para criar renda extra real, mesmo sem experiência.",
     "vale a pena": "Sim! Muitas pessoas já transformaram suas vidas usando nosso método e começaram a faturar online.",
     "o que tem no produto": "Você terá aulas práticas, acesso ao nosso grupo exclusivo, suporte e ferramentas para começar a ganhar dinheiro com IA.",
-    "sim": "Perfeito! Então vou te mandar o link, mas guarde para você, é um segredo poderoso. 😉\n" + LINK_KIRVANO,
+    "sim": f"Perfeito! Então vou te mandar o link, mas guarde para você, é um segredo poderoso. 😉\n{LINK_KIRVANO}",
     "não": "Tudo bem, se mudar de ideia, é só me chamar. Estou aqui para ajudar você a mudar sua vida.",
 }
-
-# Estados simples para controlar fluxo (usando contexto da conversa)
-# Vamos usar um flag para saber se a pessoa já confirmou interesse
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data['aguardando_confirmacao'] = True  # Ativa flag para esperar resposta "sim" ou "não"
@@ -36,7 +32,7 @@ async def responder(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if "sim" in texto:
             context.user_data['aguardando_confirmacao'] = False
             await update.message.reply_text(
-                "Que ótimo! Vou te mandar o link, mas por favor, não compartilhe com muita gente — esse é um segredo para poucos que querem realmente mudar de vida. 😉\n\n" + LINK_KIRVANO
+                f"Que ótimo! Vou te mandar o link, mas por favor, não compartilhe com muita gente — esse é um segredo para poucos que querem realmente mudar de vida. 😉\n\n{LINK_KIRVANO}"
             )
             return
         elif "não" in texto:
@@ -60,8 +56,8 @@ async def responder(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Se não reconheceu, tenta guiar para clicar no link
     await update.message.reply_text(
-        "Não entendi muito bem. Se quiser saber mais, é só perguntar sobre *valor*, *como funciona*, *vale a pena* ou *o que tem no produto*.\n\n"
-        "Ou clique no link para garantir sua vaga e mudar sua vida agora:\n" + LINK_KIRVANO,
+        f"Não entendi muito bem. Se quiser saber mais, é só perguntar sobre *valor*, *como funciona*, *vale a pena* ou *o que tem no produto*.\n\n"
+        f"Ou clique no link para garantir sua vaga e mudar sua vida agora:\n{LINK_KIRVANO}",
         parse_mode="Markdown"
     )
 
@@ -70,3 +66,4 @@ if __name__ == '__main__':
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, responder))
     app.run_polling()
+
