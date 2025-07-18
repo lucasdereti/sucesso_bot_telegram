@@ -28,7 +28,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [[InlineKeyboardButton("🚀 Acessar Renda Inteligente", url=LINK_KIRVANO)]]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text(
-        f"Olá, {user.first_name}! 👋
+        f"Olá, {user.first_name}! 👋"
 
 Descubra como ganhar dinheiro com inteligência artificial usando o método *Renda Inteligente*.
 Clique no botão abaixo para saber mais 👇",
