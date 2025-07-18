@@ -12,7 +12,7 @@ respostas = {
     "funciona": "Sim! O método Renda Inteligente foi feito para quem quer ganhar dinheiro com inteligência artificial mesmo começando do zero. 💸",
     "quero": "Você está no lugar certo! Com o Renda Inteligente, qualquer pessoa pode começar a faturar online com a ajuda da IA. 🤖",
     "preço": "O curso está com DESCONTO por tempo limitado! Acesse aqui e confira: " + LINK_KIRVANO,
-    "garantia": "Sim! Você tem 7 dias de garantia para testar tudo sem risco. ✅",
+    "garantia": "Sim! Você tem 7 dias de garantia para testar tudo sem risco.",
     "seguro": "Sim! O curso é seguro e já ajudou muitas pessoas a começarem online com IA.",
     "dinheiro": "Com a estratégia certa e IA, sim, é possível fazer uma renda extra real. Veja aqui: " + LINK_KIRVANO,
     "zero": "Mesmo sem experiência, o curso ensina tudo passo a passo!"
@@ -25,7 +25,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Quero saber mais")  # Mensagem automática sugerida
         return
 
-    keyboard = [[InlineKeyboardButton("🚀 Acessar Renda Inteligente", url=LINK_KIRVANO)]]
+    keyboard = [[InlineKeyboardButton("Acessar Renda Inteligente", url=LINK_KIRVANO)]]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text(
       
@@ -34,7 +34,7 @@ mensagem = mensagem = "Clique no botão abaixo para saber mais \U0001F447"
 
 
 Descubra como ganhar dinheiro com inteligência artificial usando o método *Renda Inteligente*.
-Clique no botão abaixo para saber mais 👇",
+Clique no botão abaixo para saber mais",
         reply_markup=reply_markup
     )
 
