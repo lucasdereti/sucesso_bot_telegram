@@ -27,7 +27,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     keyboard = [[InlineKeyboardButton("Acessar Renda Inteligente", url=LINK_KIRVANO)]]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text(
+    await update.message.reply_text
       
 
 mensagem = mensagem = mensagem = "Clique no botão abaixo para saber mais"
