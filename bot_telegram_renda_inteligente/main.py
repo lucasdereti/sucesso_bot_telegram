@@ -2,7 +2,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 import logging
 
-TOKEN = "SEU_TOKEN_AQUI"
+TOKEN = "TOKEN = "8070321774:AAGCiVU-eh5ncuOBs-KH_5E7WECb1R4Z2bg"
 LINK_KIRVANO = "https://pay.kirvano.com/353273fb-3cb8-4b83-ab2c-7f387198101d"
 
 logging.basicConfig(level=logging.INFO)
