@@ -30,7 +30,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
       
 
-mensagem = mensagem = "Clique no botão abaixo para saber mais \U0001F447"
+mensagem = mensagem = mensagem = "Clique no botão abaixo para saber mais"
+ \U0001F447"
 
 
 Descubra como ganhar dinheiro com inteligência artificial usando o método *Renda Inteligente*.
